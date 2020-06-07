@@ -33,7 +33,8 @@ class CombinePlaygroundTests: XCTestCase {
         viewModel.password = "blob is awesome"
         XCTAssertEqual(isRegisterd, [false])
         
-        viewModel.registerButtonTapped()        
+        viewModel.registerButtonTapped()
+        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.1)
         XCTAssertEqual(isRegisterd, [false, true])
     }
     
@@ -51,6 +52,7 @@ class CombinePlaygroundTests: XCTestCase {
         viewModel.password = "blob is awesome"
         viewModel.registerButtonTapped()
         
+        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.1)
         XCTAssertEqual(viewModel.isRegisterd, false)
         XCTAssertEqual(viewModel.errorAlert?.title, "Failed to register. Please try again.")
     }
