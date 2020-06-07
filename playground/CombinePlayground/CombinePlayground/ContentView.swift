@@ -10,7 +10,13 @@ import Combine
 import SwiftUI
 
 class RegisterViewModel: ObservableObject {
+    struct Alert: Identifiable {
+        var title: String
+        var id: String { self.title }
+    }
+
     @Published var email = ""
+    @Published var errorAlert: Alert?
     @Published var isRegisterd = false
     @Published var password = ""
     @Published var isRegisterRequestInFlight = false
@@ -35,6 +41,9 @@ class RegisterViewModel: ObservableObject {
             .sink {
                 self.isRegisterd = $0
                 self.isRegisterRequestInFlight = false
+                if !$0 {
+                    self.errorAlert = Alert(title: "Failed to register, please tye again")
+                }
             }
             .store(in: &self.cancellables)
 //            .eraseToAnyPublisher()
@@ -88,6 +97,9 @@ struct ContentView: View {
                     }
                 }
                 .navigationBarTitle("Register")
+                .alert(item: self.$viewModel.errorAlert) { errorAlert in
+                    Alert(title: Text(errorAlert.title))
+                }
             }
         }
     }
