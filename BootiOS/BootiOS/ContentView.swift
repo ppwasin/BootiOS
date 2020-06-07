@@ -17,7 +17,7 @@ struct Todo: Equatable, Identifiable {
     var isComplete = false
 }
 
-enum TodoAction {
+enum TodoAction: Equatable {
     case checkboxTapped
     case textFieldChanged(String)
 }
@@ -42,13 +42,14 @@ let todoReducer = Reducer<Todo, TodoAction, TodoEnvironment>{
 struct AppState: Equatable {
     var todos: [Todo] = []
 }
-enum AppAction {
+enum AppAction: Equatable {
     case addButtonTapped
     case todo(index: Int, action: TodoAction)
+    case todoDelayCompleted
 }
 
 struct AppEnvironment {
-    
+    var uuid: () -> UUID
 }
 
 let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
@@ -62,9 +63,32 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     Reducer { state, action, environment in
         switch action{
         case .addButtonTapped:
-            state.todos.insert(Todo(id: UUID()), at: 0)
+            state.todos.insert(Todo(id: environment.uuid()), at: 0)
             return .none
+        case .todo(index: _, action: .checkboxTapped):
+//            return .concatenate(
+//                Effect.cancel(id: "completion effect"),
+//                Effect(value: AppAction.todoDelayCompleted)
+//                    .delay(for: 1, scheduler: DispatchQueue.main)
+//                    .eraseToEffect()
+//                    .cancellable(id: "completion effect")
+//            )
+            // prevent other reducer to use the the same id
+            struct CancelableDelayId: Hashable {}
+            return Effect(value: AppAction.todoDelayCompleted)
+                .delay(for: 1, scheduler: DispatchQueue.main)
+                .eraseToEffect()
+                .cancellable(id: CancelableDelayId(), cancelInFlight: true)
+               
         case .todo(index: let index, action: let action):
+            return .none
+        case .todoDelayCompleted:
+            state.todos = state.todos
+                .enumerated()
+                .sorted(by: { lhs, rhs in
+                    (rhs.element.isComplete && !lhs.element.isComplete) || lhs.element.description < rhs.element.description
+                })
+                .map(\.element)
             return .none
         }
     }
@@ -91,9 +115,9 @@ struct ContentView: View {
                         ),
                         content: TodoView.init(store:)
                     )
-//                    ){ todoStore in
-//                        TodoView(store: todoStore)
-//                    }
+                    //                    ){ todoStore in
+                    //                        TodoView(store: todoStore)
+                    //                    }
                 }
                 .navigationBarTitle("Todos")
                 .navigationBarItems(trailing: Button("Add") {
@@ -131,11 +155,14 @@ struct TodoView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(
-            store: Store(initialState: AppState(todos: [
-                Todo(id: UUID(), description: "line 1", isComplete: false),
-                Todo(id: UUID(), description: "line 2", isComplete: true),
-                Todo(id: UUID(), description: "line 3", isComplete: false),
-            ]), reducer: appReducer, environment: AppEnvironment())
+            store: Store(
+                initialState: AppState(todos: [
+                    Todo(id: UUID(), description: "1 line 1", isComplete: false),
+                    Todo(id: UUID(), description: "2 line 2", isComplete: true),
+                    Todo(id: UUID(), description: "3 line 3", isComplete: false),
+                ]),
+                reducer: appReducer,
+                environment: AppEnvironment(uuid: UUID.init))
         )
     }
 }

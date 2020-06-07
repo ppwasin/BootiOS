@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4130879247312EE00684A87 /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4130878247312EE00684A87 /* TodoTests.swift */; };
+		C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C413087B2473195000684A87 /* ComposableArchitecture */; };
 		C4471F45245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */; };
 		C4471F4C245FE73100EF82B1 /* BootiOSFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4471F4B245FE73100EF82B1 /* BootiOSFrameworkTests.swift */; };
 		C4471F4E245FE73100EF82B1 /* BootiOSFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = C4471F3E245FE73100EF82B1 /* BootiOSFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -16,10 +18,6 @@
 		C4471F5F245FEADA00EF82B1 /* keypath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4471F5D245FE97400EF82B1 /* keypath.swift */; };
 		C4471F60245FEADA00EF82B1 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4471F5B245FE97400EF82B1 /* functions.swift */; };
 		C4471F6424600B0700EF82B1 /* Tagged.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4471F6324600B0700EF82B1 /* Tagged.swift */; };
-		C4471F68246013B400EF82B1 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C4471F67246013B400EF82B1 /* ComposableArchitecture */; };
-		C4471F69246013B400EF82B1 /* ComposableArchitecture in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C4471F67246013B400EF82B1 /* ComposableArchitecture */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C4471F6B246013B400EF82B1 /* ComposableArchitectureTestSupport in Frameworks */ = {isa = PBXBuildFile; productRef = C4471F6A246013B400EF82B1 /* ComposableArchitectureTestSupport */; };
-		C4471F6C246013B400EF82B1 /* ComposableArchitectureTestSupport in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C4471F6A246013B400EF82B1 /* ComposableArchitectureTestSupport */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C49C0E652454400D0016E793 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C0E642454400D0016E793 /* AppDelegate.swift */; };
 		C49C0E672454400D0016E793 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C0E662454400D0016E793 /* SceneDelegate.swift */; };
 		C49C0E6A2454400D0016E793 /* BootiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C49C0E682454400D0016E793 /* BootiOS.xcdatamodeld */; };
@@ -27,7 +25,6 @@
 		C49C0E6E2454400F0016E793 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49C0E6D2454400F0016E793 /* Assets.xcassets */; };
 		C49C0E712454400F0016E793 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C49C0E702454400F0016E793 /* Preview Assets.xcassets */; };
 		C49C0E742454400F0016E793 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C49C0E722454400F0016E793 /* LaunchScreen.storyboard */; };
-		C49C0E7F2454400F0016E793 /* BootiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C0E7E2454400F0016E793 /* BootiOSTests.swift */; };
 		C49C0E8A245440100016E793 /* BootiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49C0E89245440100016E793 /* BootiOSUITests.swift */; };
 		C49C0E9B245440BC0016E793 /* Home in Frameworks */ = {isa = PBXBuildFile; productRef = C49C0E9A245440BC0016E793 /* Home */; };
 /* End PBXBuildFile section */
@@ -77,7 +74,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C4471F69246013B400EF82B1 /* ComposableArchitecture in Embed Frameworks */,
 				C4471F52245FE73100EF82B1 /* BootiOSFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -89,7 +85,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C4471F6C246013B400EF82B1 /* ComposableArchitectureTestSupport in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C4130878247312EE00684A87 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BootiOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4471F3E245FE73100EF82B1 /* BootiOSFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BootiOSFramework.h; sourceTree = "<group>"; };
 		C4471F3F245FE73100EF82B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -120,7 +116,6 @@
 		C49C0E732454400F0016E793 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C49C0E752454400F0016E793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C0E7A2454400F0016E793 /* BootiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C49C0E7E2454400F0016E793 /* BootiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootiOSTests.swift; sourceTree = "<group>"; };
 		C49C0E802454400F0016E793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C0E85245440100016E793 /* BootiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BootiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49C0E89245440100016E793 /* BootiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootiOSUITests.swift; sourceTree = "<group>"; };
@@ -150,7 +145,7 @@
 			files = (
 				C4471F51245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */,
 				C49C0E9B245440BC0016E793 /* Home in Frameworks */,
-				C4471F68246013B400EF82B1 /* ComposableArchitecture in Frameworks */,
+				C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +160,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4471F6B246013B400EF82B1 /* ComposableArchitectureTestSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +251,8 @@
 		C49C0E7D2454400F0016E793 /* BootiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				C49C0E7E2454400F0016E793 /* BootiOSTests.swift */,
 				C49C0E802454400F0016E793 /* Info.plist */,
+				C4130878247312EE00684A87 /* TodoTests.swift */,
 			);
 			path = BootiOSTests;
 			sourceTree = "<group>";
@@ -347,7 +341,7 @@
 			name = BootiOS;
 			packageProductDependencies = (
 				C49C0E9A245440BC0016E793 /* Home */,
-				C4471F67246013B400EF82B1 /* ComposableArchitecture */,
+				C413087B2473195000684A87 /* ComposableArchitecture */,
 			);
 			productName = BootiOS;
 			productReference = C49C0E612454400D0016E793 /* BootiOS.app */;
@@ -387,7 +381,6 @@
 			);
 			name = BootiOSUITests;
 			packageProductDependencies = (
-				C4471F6A246013B400EF82B1 /* ComposableArchitectureTestSupport */,
 			);
 			productName = BootiOSUITests;
 			productReference = C49C0E85245440100016E793 /* BootiOSUITests.xctest */;
@@ -433,7 +426,7 @@
 			);
 			mainGroup = C49C0E582454400D0016E793;
 			packageReferences = (
-				C4471F66246013B400EF82B1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = C49C0E622454400D0016E793 /* Products */;
 			projectDirPath = "";
@@ -524,7 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C49C0E7F2454400F0016E793 /* BootiOSTests.swift in Sources */,
+				C4130879247312EE00684A87 /* TodoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +718,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -778,6 +772,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -962,26 +957,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C4471F66246013B400EF82B1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C4471F67246013B400EF82B1 /* ComposableArchitecture */ = {
+		C413087B2473195000684A87 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C4471F66246013B400EF82B1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			package = C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
-		};
-		C4471F6A246013B400EF82B1 /* ComposableArchitectureTestSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C4471F66246013B400EF82B1 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitectureTestSupport;
 		};
 		C49C0E9A245440BC0016E793 /* Home */ = {
 			isa = XCSwiftPackageProductDependency;

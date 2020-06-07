@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             store: Store(initialState: AppState(todos: [
             Todo(id: UUID(), description: "line 1", isComplete: false),
             Todo(id: UUID(), description: "line 2", isComplete: true),
-            Todo(id: UUID(), description: "line 3", isComplete: false),]), reducer: appReducer, environment: AppEnvironment())
+            Todo(id: UUID(), description: "line 3", isComplete: false),]), reducer: appReducer, environment: AppEnvironment(uuid: UUID.init))
         ).environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
