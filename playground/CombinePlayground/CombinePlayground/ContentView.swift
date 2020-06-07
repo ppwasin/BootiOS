@@ -13,6 +13,7 @@ class RegisterViewModel: ObservableObject {
     @Published var email = ""
     @Published var isRegisterd = false
     @Published var password = ""
+    @Published var isRegisterRequestInFlight = false
 
     let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
 
@@ -25,6 +26,7 @@ class RegisterViewModel: ObservableObject {
     }
 
     func registerButtonTapped() {
+        self.isRegisterRequestInFlight = true
         self.register(self.email, self.password)
             .map { data, _ in
                 Bool(String(decoding: data, as: UTF8.self)) ?? false
@@ -32,6 +34,7 @@ class RegisterViewModel: ObservableObject {
             .replaceError(with: false)
             .sink {
                 self.isRegisterd = $0
+                self.isRegisterRequestInFlight = false
             }
             .store(in: &self.cancellables)
 //            .eraseToAnyPublisher()
@@ -75,8 +78,13 @@ struct ContentView: View {
                             text: self.$viewModel.password
                         )
                     }
-                    Button("Register") {
-                        self.viewModel.registerButtonTapped()
+                    if self.viewModel.isRegisterRequestInFlight {
+                        Text("Registering...")
+                    }
+                    else {
+                        Button("Register") {
+                            self.viewModel.registerButtonTapped()
+                        }
                     }
                 }
                 .navigationBarTitle("Register")
@@ -91,8 +99,9 @@ struct ContentView_Previews: PreviewProvider {
             viewModel: RegisterViewModel(
                 register: { _, _ in
                     Just((Data("true".utf8), URLResponse()))
-                    .setFailureType(to: URLError.self)
-                    .eraseToAnyPublisher()
+                        .setFailureType(to: URLError.self)
+                        .delay(for: 1, scheduler: DispatchQueue.main)
+                        .eraseToAnyPublisher()
             })
         )
     }
