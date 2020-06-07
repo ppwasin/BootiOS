@@ -24,7 +24,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
         let contentView = ContentView(
             viewModel: RegisterViewModel(
-                register: registerRequest(email:password:)
+                register: registerRequest(email:password:),
+                validatePassword: mockValidate(password:)
         ))
             .environment(\.managedObjectContext, context)
 
