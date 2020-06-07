@@ -6,29 +6,52 @@
 //  Copyright © 2563 Wasin Passornpakorn. All rights reserved.
 //
 
-import XCTest
+import Combine
 @testable import CombinePlayground
+import XCTest
 
 class CombinePlaygroundTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var cancellables: Set<AnyCancellable> = []
+    func testReigsterSuccessful() {
+        let viewModel = RegisterViewModel(
+            register: { _, _ in
+                Just((Data("true".utf8), URLResponse()))
+                    .setFailureType(to: URLError.self)
+                    .eraseToAnyPublisher()
+        })
+        
+        var isRegisterd: [Bool] = []
+        viewModel.$isRegisterd
+            .sink { isRegisterd.append($0) }
+            .store(in: &cancellables)
+        
+        XCTAssertEqual(isRegisterd, [false])
+        
+        viewModel.email = "blob@pointfree.co"
+        XCTAssertEqual(isRegisterd, [false])
+        
+        viewModel.password = "blob is awesome"
+        XCTAssertEqual(isRegisterd, [false])
+        
+        viewModel.registerButtonTapped()        
+        XCTAssertEqual(isRegisterd, [false, true])
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testReigsterFailure() {
+        let viewModel = RegisterViewModel(
+            register: { _, _ in
+                Just((Data("false".utf8), URLResponse()))
+                    .setFailureType(to: URLError.self)
+                    .eraseToAnyPublisher()
+        })
+        
+        XCTAssertEqual(viewModel.isRegisterd, false)
+        
+        viewModel.email = "blob@pointfree.co"
+        viewModel.password = "blob is awesome"
+        viewModel.registerButtonTapped()
+        
+        XCTAssertEqual(viewModel.isRegisterd, false)
+        XCTAssertEqual(viewModel.errorAlert?.title, "Failed to register. Please try again.")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

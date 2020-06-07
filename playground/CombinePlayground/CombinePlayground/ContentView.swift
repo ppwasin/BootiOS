@@ -42,7 +42,7 @@ class RegisterViewModel: ObservableObject {
                 self.isRegisterd = $0
                 self.isRegisterRequestInFlight = false
                 if !$0 {
-                    self.errorAlert = Alert(title: "Failed to register, please tye again")
+                    self.errorAlert = Alert(title: "Failed to register. Please try again.")
                 }
             }
             .store(in: &self.cancellables)
