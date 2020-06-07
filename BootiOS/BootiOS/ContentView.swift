@@ -75,10 +75,12 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 //            )
             // prevent other reducer to use the the same id
             struct CancelableDelayId: Hashable {}
+//            return Effect(value: AppAction.todoDelayCompleted)
+//                .delay(for: 1, scheduler: DispatchQueue.main)
+//                .eraseToEffect()
+//                .cancellable(id: CancelableDelayId(), cancelInFlight: true)
             return Effect(value: AppAction.todoDelayCompleted)
-                .delay(for: 1, scheduler: DispatchQueue.main)
-                .eraseToEffect()
-                .cancellable(id: CancelableDelayId(), cancelInFlight: true)
+                .debounce(id: CancelableDelayId(), for: 1, scheduler: DispatchQueue.main)
                
         case .todo(index: let index, action: let action):
             return .none
