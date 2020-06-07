@@ -86,7 +86,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             state.todos = state.todos
                 .enumerated()
                 .sorted(by: { lhs, rhs in
-                    (rhs.element.isComplete && !lhs.element.isComplete) || lhs.element.description < rhs.element.description
+                    (rhs.element.isComplete && !lhs.element.isComplete) || lhs.offset < rhs.offset
                 })
                 .map(\.element)
             return .none
