@@ -49,6 +49,8 @@ enum AppAction: Equatable {
 }
 
 struct AppEnvironment {
+//    var mainQueue: AnyScheduler<DispatchQueue.SchedulerTimeType, DispatchQueue.SchedulerOptions>
+    var mainQueue: AnySchedulerOf<DispatchQueue>
     var uuid: () -> UUID
 }
 
@@ -80,7 +82,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 //                .eraseToEffect()
 //                .cancellable(id: CancelableDelayId(), cancelInFlight: true)
             return Effect(value: AppAction.todoDelayCompleted)
-                .debounce(id: CancelableDelayId(), for: 1, scheduler: DispatchQueue.main)
+                .debounce(id: CancelableDelayId(), for: 1, scheduler: environment.mainQueue)
                
         case .todo(index: let index, action: let action):
             return .none
@@ -164,7 +166,9 @@ struct ContentView_Previews: PreviewProvider {
                     Todo(id: UUID(), description: "3 line 3", isComplete: false),
                 ]),
                 reducer: appReducer,
-                environment: AppEnvironment(uuid: UUID.init))
+                environment: AppEnvironment(
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                    uuid: UUID.init))
         )
     }
 }

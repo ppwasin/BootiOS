@@ -121,6 +121,7 @@
 		C49C0E89245440100016E793 /* BootiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BootiOSUITests.swift; sourceTree = "<group>"; };
 		C49C0E8B245440100016E793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C0F262455EF3B0016E793 /* BootiOSPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BootiOSPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C49EAD3A248CEBC200FD540C /* CombinePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombinePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +204,7 @@
 				C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */,
 				C4471F62245FFE2E00EF82B1 /* AlgebraicDataTypes-Exponents.playground */,
 				C49C0F262455EF3B0016E793 /* BootiOSPlayground.playground */,
+				C49EAD3A248CEBC200FD540C /* CombinePlayground.playground */,
 				C49C0E632454400D0016E793 /* BootiOS */,
 				C49C0E7D2454400F0016E793 /* BootiOSTests */,
 				C49C0E88245440100016E793 /* BootiOSUITests */,
