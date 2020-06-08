@@ -147,4 +147,19 @@ class CombinePlaygroundTests: XCTestCase {
         testScheduler.advanced()
         XCTAssertEqual(output, [1, 2])
     }
+    
+    func testSchedulerdAfterDelay(){
+        var isExecuted = false
+        testScheduler.schedule(after: testScheduler.now.advanced(by: 1)){
+            isExecuted = true
+        }
+        
+        XCTAssertEqual(isExecuted, false)
+        testScheduler.advanced(by: .milliseconds(500))
+        XCTAssertEqual(isExecuted, false)
+        testScheduler.advanced(by: .milliseconds(499))
+        XCTAssertEqual(isExecuted, false)
+        testScheduler.advanced(by: .milliseconds(1))
+        XCTAssertEqual(isExecuted, true)
+    }
 }

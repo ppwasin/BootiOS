@@ -14,36 +14,45 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
     
     var minimumTolerance: SchedulerTimeType.Stride = 0
     
-    private var scheduled: [() -> Void] = []
+    private var scheduled: [(action: () -> Void, date: SchedulerTimeType)] = []
     
     init(now: SchedulerTimeType) {
         self.now = now
     }
     
-    func advanced() {
-        for action in self.scheduled {
-            action()
+    func advanced(by stride: SchedulerTimeType.Stride = .zero) {
+        self.now = self.now.advanced(by: stride) //move now to stride date
+        for (action, date) in self.scheduled {
+            if date <= self.now {
+                action()
+            }
         }
-        self.scheduled.removeAll()
+        self.scheduled.removeAll(where: { $0.date <= self.now })
     }
     
     func schedule(
         options _: SchedulerOptions?,
         _ action: @escaping () -> Void
     ) {
-        self.scheduled.append(action)
+        self.scheduled.append((action, self.now))
     }
     
-    func schedule(after date: SchedulerTimeType, tolerance: SchedulerTimeType.Stride, options: SchedulerOptions?, _ action: @escaping () -> Void) {}
+    func schedule(
+        after date: SchedulerTimeType,
+        tolerance _: SchedulerTimeType.Stride,
+        options _: SchedulerOptions?,
+        _ action: @escaping () -> Void
+    ) {
+        self.scheduled.append((action, date))
+    }
     
     func schedule(after date: SchedulerTimeType, interval: SchedulerTimeType.Stride, tolerance: SchedulerTimeType.Stride, options: SchedulerOptions?, _ action: @escaping () -> Void) -> Cancellable {
         return AnyCancellable {}
     }
 }
 
-
-extension DispatchQueue{
-    static var testScheduler: TestScheduler<SchedulerTimeType, SchedulerOptions>{
+extension DispatchQueue {
+    static var testScheduler: TestScheduler<SchedulerTimeType, SchedulerOptions> {
         TestScheduler(now: .init(.init(uptimeNanoseconds: 1)))
     }
 }
