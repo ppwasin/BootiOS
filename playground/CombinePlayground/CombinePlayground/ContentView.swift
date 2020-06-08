@@ -22,7 +22,7 @@ class RegisterViewModel: ObservableObject {
     @Published var isRegisterRequestInFlight = false
     @Published var passwordValidationMesaaage = ""
 
-    let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>    
+    let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
     var cancellables: Set<AnyCancellable> = []
 
     init(
@@ -31,18 +31,23 @@ class RegisterViewModel: ObservableObject {
     ) {
         self.register = register
 
-        //sink [weak self] because:
-        //retain cycle: self own password, password own self
+        // sink [weak self] because:
+        // retain cycle: self own password, password own self
         self.$password
+            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
             .flatMap { password in
-                validatePassword(password)
+                password.isEmpty
+                    ? Just("").eraseToAnyPublisher()
+                    : validatePassword(password)
+                    .receive(on: DispatchQueue.main)
                     .map { data, _ in
                         String(decoding: data, as: UTF8.self)
                     }
                     .replaceError(with: "Could not validate password.")
+                    .eraseToAnyPublisher()
             }
-        .sink{ [weak self] in self?.passwordValidationMesaaage = $0 }
-        .store(in: &self.cancellables)
+            .sink { [weak self] in self?.passwordValidationMesaaage = $0 }
+            .store(in: &self.cancellables)
     }
 
     func registerButtonTapped() {
@@ -82,8 +87,8 @@ func registerRequest(
 
 func mockValidate(password: String) -> AnyPublisher<(data: Data, response: URLResponse), URLError> {
     let message = password.count < 5 ? "Password is too short"
-        : password.count > 20 ? "password is too long"
-        : "Passowrd is good"
+        : password.count > 20 ? "Password is too long"
+        : "Password is good"
     return Just((Data(message.utf8), URLResponse()))
         .setFailureType(to: URLError.self)
         .eraseToAnyPublisher()
@@ -142,7 +147,11 @@ struct ContentView_Previews: PreviewProvider {
                         .delay(for: 1, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher()
                 },
-                validatePassword: mockValidate(password:)
+                validatePassword: {
+                    mockValidate(password: $0)
+                        .delay(for: 0.5, scheduler: DispatchQueue.main)
+                        .eraseToAnyPublisher()
+                }
             )
         )
     }

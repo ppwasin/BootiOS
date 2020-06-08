@@ -18,7 +18,12 @@ class CombinePlaygroundTests: XCTestCase {
                 Just((Data("true".utf8), URLResponse()))
                     .setFailureType(to: URLError.self)
                     .eraseToAnyPublisher()
-        })
+            },
+            validatePassword: { _ in
+                Empty(completeImmediately: true)
+                    .eraseToAnyPublisher()
+            }
+        )
         
         var isRegisterd: [Bool] = []
         viewModel.$isRegisterd
@@ -44,7 +49,9 @@ class CombinePlaygroundTests: XCTestCase {
                 Just((Data("false".utf8), URLResponse()))
                     .setFailureType(to: URLError.self)
                     .eraseToAnyPublisher()
-        })
+            },
+            validatePassword: { _ in Empty(completeImmediately: true).eraseToAnyPublisher() }
+        )
         
         XCTAssertEqual(viewModel.isRegisterd, false)
         
@@ -55,5 +62,31 @@ class CombinePlaygroundTests: XCTestCase {
         _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.1)
         XCTAssertEqual(viewModel.isRegisterd, false)
         XCTAssertEqual(viewModel.errorAlert?.title, "Failed to register. Please try again.")
+    }
+    
+    func testValidatePassword() {
+        let viewModel = RegisterViewModel(
+            register: { _, _ in fatalError() },
+            validatePassword: mockValidate(password:)
+        )
+        
+        var passwordValidationMessage: [String] = []
+        viewModel.$passwordValidationMesaaage
+            .sink { passwordValidationMessage.append($0) }
+            .store(in: &cancellables)
+        
+        XCTAssertEqual(passwordValidationMessage, [""])
+        
+        viewModel.password = "blob"
+        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+        XCTAssertEqual(passwordValidationMessage, ["", "Password is too short"])
+        
+        viewModel.password = "blob is awesome"
+        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.21)
+        XCTAssertEqual(passwordValidationMessage, ["", "Password is too short"])
+        
+        viewModel.password = "012456789-012456789-012456789"
+        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+        XCTAssertEqual(passwordValidationMessage, ["", "Password is too short", "Password is good", "Password is too long"])
     }
 }
