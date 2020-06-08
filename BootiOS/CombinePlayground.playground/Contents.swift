@@ -43,3 +43,23 @@ OperationQueue.main.schedule(after: .init(Date() + 1)){
 OperationQueue.main.schedule(after: .init(Date() + 1), interval: 1){
     print("OperationQueue", "timer")
 }.store(in: &cancellable)
+
+
+let source = DispatchSource.makeTimerSource()
+source.schedule(deadline: .now(), repeating: 1)
+source.setEventHandler{
+    print("DispatchQueue", "source", "timer")
+}
+source.resume()
+
+
+ImmediateScheduler.shared.schedule{
+    print("ImmediateScheduler")
+}
+ImmediateScheduler.shared.schedule(after: ImmediateScheduler.shared.now.advanced(by: 1)){
+    print("ImmediateScheduler", "delayed")
+}
+
+ImmediateScheduler.shared.schedule(after: ImmediateScheduler.shared.now, interval: 1){
+    print("ImmediateScheduler", "timer")
+}.store(in: &cancellable)

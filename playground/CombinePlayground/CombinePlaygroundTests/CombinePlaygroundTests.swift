@@ -87,6 +87,64 @@ class CombinePlaygroundTests: XCTestCase {
         
         viewModel.password = "012456789-012456789-012456789"
         _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
-        XCTAssertEqual(passwordValidationMessage, ["", "Password is too short", "Password is good", "Password is too long"])
+        XCTAssertEqual(passwordValidationMessage, ["", "Password is too short", "Password is too long"])
+    }
+    
+    let testScheduler = DispatchQueue.testScheduler
+    func testImmediatedSchedulerdAction() {
+//        let testScheduler = TestScheduler<DispatchQueue.SchedulerTimeType, DispatchQueue.SchedulerOptions>(now: DispatchQueue.SchedulerTimeType.init(DispatchTime.init(uptimeNanoseconds: 0)))
+        
+//        let testScheduler = TestScheduler<DispatchQueue.SchedulerTimeType, DispatchQueue.SchedulerOptions>(now: .init(.init(uptimeNanoseconds: 0)))
+        
+        var isExecuted = false
+        testScheduler.schedule {
+            isExecuted = true
+        }
+        
+        XCTAssertEqual(isExecuted, false)
+        testScheduler.advanced()
+        XCTAssertEqual(isExecuted, true)
+    }
+    
+    func testMultipleImmediateSchdulerActions() {
+        var executionCount = 0
+        
+        testScheduler.schedule {
+            executionCount += 1
+        }
+        testScheduler.schedule {
+            executionCount += 1
+        }
+        
+        XCTAssertEqual(executionCount, 0)
+        testScheduler.advanced()
+        XCTAssertEqual(executionCount, 2)
+    }
+    
+    func testImmedateSchedulerActionWithPublisher() {
+        var output: [Int] = []
+        
+        Just(1)
+            .receive(on: testScheduler)
+            .sink { output.append($0) }
+            .store(in: &cancellables)
+                
+        XCTAssertEqual(output, [])
+        testScheduler.advanced()
+        XCTAssertEqual(output, [1])
+    }
+    
+    func testImmedateSchedulerActionWithMultiplePublisher() {
+        var output: [Int] = []
+        
+        Just(1)
+            .receive(on: testScheduler)
+            .merge(with: Just(2).receive(on: testScheduler))
+            .sink { output.append($0) }
+            .store(in: &cancellables)
+                
+        XCTAssertEqual(output, [])
+        testScheduler.advanced()
+        XCTAssertEqual(output, [1, 2])
     }
 }
