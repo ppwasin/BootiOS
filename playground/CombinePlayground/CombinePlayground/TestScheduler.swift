@@ -24,7 +24,7 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
     }
     
     func advance(by stride: SchedulerTimeType.Stride = .zero) {
-        self.scheduled.sort { lhs, rhs in lhs.date < rhs.date }
+        self.scheduled.sort { lhs, rhs in (lhs.date, lhs.id) < (rhs.date, rhs.id) }
         guard
             let nextDate = scheduled.first?.date,
             self.now.advanced(by: stride) >= nextDate

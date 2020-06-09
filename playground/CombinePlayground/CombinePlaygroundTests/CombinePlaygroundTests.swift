@@ -197,11 +197,11 @@ class CombinePlaygroundTests: XCTestCase {
     
     func testScheduledTwoInterval_Fail() {
         var values: [String] = []
-        testScheduler.schedule(after: testScheduler.now, interval: 1) {
+        testScheduler.schedule(after: testScheduler.now.advanced(by: 1), interval: 1) {
             values.append("Hello")
         }.store(in: &cancellables)
         
-        testScheduler.schedule(after: testScheduler.now, interval: 2) {
+        testScheduler.schedule(after: testScheduler.now.advanced(by: 2), interval: 2) {
             values.append("World")
         }.store(in: &cancellables)
         
@@ -239,5 +239,16 @@ class CombinePlaygroundTests: XCTestCase {
         cancellables.removeAll()
         testScheduler.advance(by: .seconds(1))
         XCTAssertEqual(executionCount, 2)
+    }
+    
+    func testFun() {
+        var values: [Int] = []
+        testScheduler.schedule(after: testScheduler.now, interval: 1){
+            values.append(values.count)
+        }.store(in: &cancellables)
+        
+        XCTAssertEqual(values, [])
+        testScheduler.advance(by: 1000)
+        XCTAssertEqual(values, Array(0...1000))
     }
 }
