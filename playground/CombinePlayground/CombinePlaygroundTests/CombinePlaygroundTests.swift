@@ -193,7 +193,7 @@ class CombinePlaygroundTests: XCTestCase {
         
         testScheduler.advance(by: .seconds(5))
         XCTAssertEqual(executionCount, 8)
-    }
+    }        
     
     func testScheduledIntervalCancellation(){
         var executionCount = 0
