@@ -128,7 +128,7 @@ class CombinePlaygroundTests: XCTestCase {
             .receive(on: testScheduler)
             .sink { output.append($0) }
             .store(in: &cancellables)
-                
+        
         XCTAssertEqual(output, [])
         testScheduler.advance()
         XCTAssertEqual(output, [1])
@@ -142,15 +142,15 @@ class CombinePlaygroundTests: XCTestCase {
             .merge(with: Just(2).receive(on: testScheduler))
             .sink { output.append($0) }
             .store(in: &cancellables)
-                
+        
         XCTAssertEqual(output, [])
         testScheduler.advance()
         XCTAssertEqual(output, [1, 2])
     }
     
-    func testSchedulerdAfterDelay(){
+    func testSchedulerdAfterDelay() {
         var isExecuted = false
-        testScheduler.schedule(after: testScheduler.now.advanced(by: 1)){
+        testScheduler.schedule(after: testScheduler.now.advanced(by: 1)) {
             isExecuted = true
         }
         
@@ -163,9 +163,9 @@ class CombinePlaygroundTests: XCTestCase {
         XCTAssertEqual(isExecuted, true)
     }
     
-    func testSchdulerAfterLongDelay(){
+    func testSchdulerAfterLongDelay() {
         var isExecuted = false
-        testScheduler.schedule(after: testScheduler.now.advanced(by: 1)){
+        testScheduler.schedule(after: testScheduler.now.advanced(by: 1)) {
             isExecuted = true
         }
         
@@ -177,7 +177,7 @@ class CombinePlaygroundTests: XCTestCase {
     func testSchedulerInterval() {
         var executionCount = 0
         
-        testScheduler.schedule(after: testScheduler.now, interval: 1){
+        testScheduler.schedule(after: testScheduler.now, interval: 1) {
             executionCount += 1
         }.store(in: &cancellables)
         
@@ -193,12 +193,38 @@ class CombinePlaygroundTests: XCTestCase {
         
         testScheduler.advance(by: .seconds(5))
         XCTAssertEqual(executionCount, 8)
-    }        
+    }
     
-    func testScheduledIntervalCancellation(){
+    func testScheduledTwoInterval_Fail() {
+        var values: [String] = []
+        testScheduler.schedule(after: testScheduler.now, interval: 1) {
+            values.append("Hello")
+        }.store(in: &cancellables)
+        
+        testScheduler.schedule(after: testScheduler.now, interval: 2) {
+            values.append("World")
+        }.store(in: &cancellables)
+        
+        XCTAssertEqual(values, [])
+        testScheduler.advance(by: 2)
+        XCTAssertEqual(values, ["Hello", "Hello", "World"])
+    }
+    
+    func testScheduleNow() {
+        var times: [UInt64] = []
+        testScheduler.schedule(after: testScheduler.now, interval: 1) {
+            times.append(self.testScheduler.now.dispatchTime.uptimeNanoseconds)
+        }.store(in: &cancellables)
+        
+        XCTAssertEqual(times, [])
+        testScheduler.advance(by: 3)
+        XCTAssertEqual(times, [1, 1_000_000_001, 2_000_000_001, 3_000_000_001])
+    }
+    
+    func testScheduledIntervalCancellation() {
         var executionCount = 0
         
-        testScheduler.schedule(after: testScheduler.now, interval: 1){
+        testScheduler.schedule(after: testScheduler.now, interval: 1) {
             executionCount += 1
         }.store(in: &cancellables)
         
@@ -210,8 +236,7 @@ class CombinePlaygroundTests: XCTestCase {
         testScheduler.advance(by: .milliseconds(500))
         XCTAssertEqual(executionCount, 2)
         
-        
-        self.cancellables.removeAll()
+        cancellables.removeAll()
         testScheduler.advance(by: .seconds(1))
         XCTAssertEqual(executionCount, 2)
     }
