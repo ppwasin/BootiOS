@@ -243,12 +243,27 @@ class CombinePlaygroundTests: XCTestCase {
     
     func testFun() {
         var values: [Int] = []
-        testScheduler.schedule(after: testScheduler.now, interval: 1){
+        testScheduler.schedule(after: testScheduler.now, interval: 1) {
             values.append(values.count)
         }.store(in: &cancellables)
         
         XCTAssertEqual(values, [])
         testScheduler.advance(by: 1000)
         XCTAssertEqual(values, Array(0...1000))
+    }
+    
+    func testFail() {
+        let subject = PassthroughSubject<Void, Never>()
+        
+        var count = 0
+        subject
+            .debounce(for: 1, scheduler: testScheduler)
+            .receive(on: testScheduler)
+            .sink { count += 1 }
+            .store(in: &cancellables)
+        
+        subject.send()
+        testScheduler.advance(by: 100)
+        XCTAssertEqual(count, 1)
     }
 }

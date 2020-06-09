@@ -39,8 +39,8 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
         self.now = nextDate
         // execute action first one and remove it
         while let (_, action, date) = self.scheduled.first, date == nextDate {
-            action()
             self.scheduled.removeFirst()
+            action()
         }
         
         //First input 10 => 9, 8, 7
@@ -94,9 +94,9 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
         let id = self.nextId()
         func scheduledAction(for date: SchedulerTimeType) -> () -> Void {
             return { [weak self] in
-                action()
                 let nextDate = date.advanced(by: interval)
                 self?.scheduled.append((id, scheduledAction(for: nextDate), nextDate))
+                action()
             }
         }
         
