@@ -14,15 +14,18 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
     
     var minimumTolerance: SchedulerTimeType.Stride = 0
     
-    private var scheduled: [(action: () -> Void, date: SchedulerTimeType)] = []
+    // action: testScheduler.schedule { action }
+    // date: the date that will be invoke action, see usage in advance
+    private var scheduled: [(id: Int, action: () -> Void, date: SchedulerTimeType)] = []
+    private var lastId = 0
     
     init(now: SchedulerTimeType) {
         self.now = now
     }
     
-    func advanced(by stride: SchedulerTimeType.Stride = .zero) {
-        self.now = self.now.advanced(by: stride) //move now to stride date
-        for (action, date) in self.scheduled {
+    func advance(by stride: SchedulerTimeType.Stride = .zero) {
+        self.now = self.now.advanced(by: stride) // move now to stride date
+        for (id, action, date) in self.scheduled {
             if date <= self.now {
                 action()
             }
@@ -34,7 +37,7 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
         options _: SchedulerOptions?,
         _ action: @escaping () -> Void
     ) {
-        self.scheduled.append((action, self.now))
+        scheduled.append((nextId(), action, self.now))
     }
     
     func schedule(
@@ -43,11 +46,42 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
         options _: SchedulerOptions?,
         _ action: @escaping () -> Void
     ) {
-        self.scheduled.append((action, date))
+        scheduled.append((nextId(), action, date))
     }
     
-    func schedule(after date: SchedulerTimeType, interval: SchedulerTimeType.Stride, tolerance: SchedulerTimeType.Stride, options: SchedulerOptions?, _ action: @escaping () -> Void) -> Cancellable {
-        return AnyCancellable {}
+    func schedule(
+        after date: SchedulerTimeType,
+        interval: SchedulerTimeType.Stride,
+        tolerance _: SchedulerTimeType.Stride,
+        options _: SchedulerOptions?,
+        _ action: @escaping () -> Void
+    ) -> Cancellable {
+        let id = nextId()
+        func scheduledAction(for date: SchedulerTimeType) -> () -> Void {
+            return { [weak self] in
+                action()
+                let nextDate = date.advanced(by: interval)
+                self?.scheduled.append((id, scheduledAction(for: nextDate), nextDate))
+            }
+        }
+        
+        scheduled.append((id, scheduledAction(for: date), date))
+        
+//        (1...1_000_000).forEach { index in
+//            let nextDate = date.advanced(
+//                by: interval * (SchedulerTimeType.Stride(exactly: index) ?? .zero)
+//            )
+//            self.schedule(after: nextDate, action)
+//        }
+        
+        return AnyCancellable {
+            self.scheduled.removeAll(where: { $0.id == id})
+        }
+    }
+    
+    private func nextId() -> Int {
+        self.lastId += 1
+        return self.lastId
     }
 }
 
