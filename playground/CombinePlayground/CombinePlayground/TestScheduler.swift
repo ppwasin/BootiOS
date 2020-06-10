@@ -35,8 +35,7 @@ final class TestScheduler<SchedulerTimeType, SchedulerOptions>: Scheduler where 
         
         let nextStride = stride - self.now.distance(to: nextDate)
         self.now = nextDate
-                
-        self.now = nextDate
+        
         // execute action first one and remove it
         while let (_, action, date) = self.scheduled.first, date == nextDate {
             self.scheduled.removeFirst()
