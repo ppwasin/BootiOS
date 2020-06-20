@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C443DFEF248E863700CCB4C6 /* TestScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443DFEE248E863700CCB4C6 /* TestScheduler.swift */; };
+		C480FB37249D9405004FBE33 /* AnyScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480FB36249D9405004FBE33 /* AnyScheduler.swift */; };
 		C49EADB5248CF9BE00FD540C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49EADB4248CF9BE00FD540C /* AppDelegate.swift */; };
 		C49EADB7248CF9BE00FD540C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49EADB6248CF9BE00FD540C /* SceneDelegate.swift */; };
 		C49EADBA248CF9BE00FD540C /* CombinePlayground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C49EADB8248CF9BE00FD540C /* CombinePlayground.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		C443DFEE248E863700CCB4C6 /* TestScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScheduler.swift; sourceTree = "<group>"; };
+		C480FB36249D9405004FBE33 /* AnyScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyScheduler.swift; sourceTree = "<group>"; };
 		C49EADB1248CF9BE00FD540C /* CombinePlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombinePlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49EADB4248CF9BE00FD540C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C49EADB6248CF9BE00FD540C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				C49EADB8248CF9BE00FD540C /* CombinePlayground.xcdatamodeld */,
 				C49EADBF248CF9BF00FD540C /* Preview Content */,
 				C443DFEE248E863700CCB4C6 /* TestScheduler.swift */,
+				C480FB36249D9405004FBE33 /* AnyScheduler.swift */,
 			);
 			path = CombinePlayground;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C480FB37249D9405004FBE33 /* AnyScheduler.swift in Sources */,
 				C49EADB5248CF9BE00FD540C /* AppDelegate.swift in Sources */,
 				C443DFEF248E863700CCB4C6 /* TestScheduler.swift in Sources */,
 				C49EADB7248CF9BE00FD540C /* SceneDelegate.swift in Sources */,

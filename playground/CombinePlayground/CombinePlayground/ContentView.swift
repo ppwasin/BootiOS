@@ -9,7 +9,7 @@
 import Combine
 import SwiftUI
 
-class RegisterViewModel<S: Scheduler>: ObservableObject {
+class RegisterViewModel: ObservableObject {
     struct Alert: Identifiable {
         var title: String
         var id: String { self.title }
@@ -24,12 +24,13 @@ class RegisterViewModel<S: Scheduler>: ObservableObject {
 
     let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
     var cancellables: Set<AnyCancellable> = []
-    let schedule: S
+
+    let schedule: AnySchedulerOf<DispatchQueue>
 
     init(
         register: @escaping (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
         validatePassword: @escaping (String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
-        schedule: S
+        schedule: AnySchedulerOf<DispatchQueue>
     ) {
         self.register = register
         self.schedule = schedule
@@ -98,7 +99,7 @@ func mockValidate(password: String) -> AnyPublisher<(data: Data, response: URLRe
 }
 
 struct ContentView: View {
-    @ObservedObject var viewModel: RegisterViewModel<DispatchQueue>
+    @ObservedObject var viewModel: RegisterViewModel
     var body: some View {
         NavigationView {
             if self.viewModel.isRegisterd {
@@ -155,7 +156,7 @@ struct ContentView_Previews: PreviewProvider {
                         .delay(for: 0.5, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher()
                 },
-                schedule: DispatchQueue.main
+                schedule: DispatchQueue.main.eraseToAnyScheduler()
             )
         )
     }
