@@ -9,7 +9,7 @@
 import Combine
 import SwiftUI
 
-class RegisterViewModel: ObservableObject {
+class RegisterViewModel<S: Scheduler>: ObservableObject {
     struct Alert: Identifiable {
         var title: String
         var id: String { self.title }
@@ -24,13 +24,15 @@ class RegisterViewModel: ObservableObject {
 
     let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
     var cancellables: Set<AnyCancellable> = []
+    let schedule: S
 
-    init<S: Scheduler>(
+    init(
         register: @escaping (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
         validatePassword: @escaping (String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
         schedule: S
     ) {
         self.register = register
+        self.schedule = schedule
 
         // sink [weak self] because:
         // retain cycle: self own password, password own self
@@ -54,7 +56,7 @@ class RegisterViewModel: ObservableObject {
     func registerButtonTapped() {
         self.isRegisterRequestInFlight = true
         self.register(self.email, self.password)
-            .receive(on: DispatchQueue.main)
+            .receive(on: schedule)
             .map { data, _ in
                 Bool(String(decoding: data, as: UTF8.self)) ?? false
             }
@@ -96,7 +98,7 @@ func mockValidate(password: String) -> AnyPublisher<(data: Data, response: URLRe
 }
 
 struct ContentView: View {
-    @ObservedObject var viewModel: RegisterViewModel
+    @ObservedObject var viewModel: RegisterViewModel<DispatchQueue>
     var body: some View {
         NavigationView {
             if self.viewModel.isRegisterd {
