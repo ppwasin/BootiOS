@@ -80,3 +80,4 @@ class RaceTests: XCTestCase {
         XCTAssertEqual(output, [42])
     }
 }
+
