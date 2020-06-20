@@ -25,21 +25,22 @@ class RegisterViewModel: ObservableObject {
     let register: (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
     var cancellables: Set<AnyCancellable> = []
 
-    init(
+    init<S: Scheduler>(
         register: @escaping (String, String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
-        validatePassword: @escaping (String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>
+        validatePassword: @escaping (String) -> AnyPublisher<(data: Data, response: URLResponse), URLError>,
+        schedule: S
     ) {
         self.register = register
 
         // sink [weak self] because:
         // retain cycle: self own password, password own self
         self.$password
-            .debounce(for: .milliseconds(300), scheduler: DispatchQueue.main)
+            .debounce(for: .milliseconds(300), scheduler: schedule)
             .flatMap { password in
                 password.isEmpty
                     ? Just("").eraseToAnyPublisher()
                     : validatePassword(password)
-                    .receive(on: DispatchQueue.main)
+                    .receive(on: schedule)
                     .map { data, _ in
                         String(decoding: data, as: UTF8.self)
                     }
@@ -151,7 +152,8 @@ struct ContentView_Previews: PreviewProvider {
                     mockValidate(password: $0)
                         .delay(for: 0.5, scheduler: DispatchQueue.main)
                         .eraseToAnyPublisher()
-                }
+                },
+                schedule: DispatchQueue.main
             )
         )
     }

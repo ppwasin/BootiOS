@@ -12,6 +12,7 @@ import XCTest
 
 class CombinePlaygroundTests: XCTestCase {
     var cancellables: Set<AnyCancellable> = []
+    let testScheduler = DispatchQueue.testScheduler
     func testReigsterSuccessful() {
         let viewModel = RegisterViewModel(
             register: { _, _ in
@@ -22,7 +23,8 @@ class CombinePlaygroundTests: XCTestCase {
             validatePassword: { _ in
                 Empty(completeImmediately: true)
                     .eraseToAnyPublisher()
-            }
+            },
+            schedule: testScheduler
         )
         
         var isRegisterd: [Bool] = []
@@ -50,7 +52,8 @@ class CombinePlaygroundTests: XCTestCase {
                     .setFailureType(to: URLError.self)
                     .eraseToAnyPublisher()
             },
-            validatePassword: { _ in Empty(completeImmediately: true).eraseToAnyPublisher() }
+            validatePassword: { _ in Empty(completeImmediately: true).eraseToAnyPublisher() },
+            schedule: testScheduler
         )
         
         XCTAssertEqual(viewModel.isRegisterd, false)
@@ -67,7 +70,8 @@ class CombinePlaygroundTests: XCTestCase {
     func testValidatePassword() {
         let viewModel = RegisterViewModel(
             register: { _, _ in fatalError() },
-            validatePassword: mockValidate(password:)
+            validatePassword: mockValidate(password:),
+            schedule: testScheduler
         )
         
         var passwordValidationMessage: [String] = []
@@ -78,19 +82,21 @@ class CombinePlaygroundTests: XCTestCase {
         XCTAssertEqual(passwordValidationMessage, [""])
         
         viewModel.password = "blob"
-        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+//        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+        testScheduler.advance(by: .milliseconds(300))
         XCTAssertEqual(passwordValidationMessage, ["", "Password is too short"])
         
         viewModel.password = "blob is awesome"
-        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.21)
+//        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.21)
+        testScheduler.advance(by: .milliseconds(200))
         XCTAssertEqual(passwordValidationMessage, ["", "Password is too short"])
         
         viewModel.password = "012456789-012456789-012456789"
-        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+//        _ = XCTWaiter.wait(for: [XCTestExpectation()], timeout: 0.31)
+        testScheduler.advance(by: .milliseconds(300))
         XCTAssertEqual(passwordValidationMessage, ["", "Password is too short", "Password is too long"])
     }
     
-    let testScheduler = DispatchQueue.testScheduler
     func testImmediatedSchedulerdAction() {
 //        let testScheduler = TestScheduler<DispatchQueue.SchedulerTimeType, DispatchQueue.SchedulerOptions>(now: DispatchQueue.SchedulerTimeType.init(DispatchTime.init(uptimeNanoseconds: 0)))
         
