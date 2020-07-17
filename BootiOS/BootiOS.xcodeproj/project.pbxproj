@@ -31,12 +31,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C407A49324C20D0A00B9155E /* PBXContainerItemProxy */ = {
+		C407A4D924C213CF00B9155E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = C407A47D24C20D0900B9155E;
-			remoteInfo = CasePathsPlayground;
+			remoteGlobalIDString = C407A4A524C213CB00B9155E;
+			remoteInfo = SwiftUIBindings;
+		};
+		C407A4DB24C213CF00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A4B624C213CD00B9155E;
+			remoteInfo = SwiftUIBindingsTests;
+		};
+		C407A4DD24C213CF00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A4C124C213CD00B9155E;
+			remoteInfo = SwiftUIBindingsUITests;
 		};
 		C4471F46245FE73100EF82B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -101,7 +115,7 @@
 
 /* Begin PBXFileReference section */
 		C407A45224C2097600B9155E /* CasePathsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CasePathsPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CasePathsPlayground.xcodeproj; path = ../playground/CasePathsPlayground/CasePathsPlayground.xcodeproj; sourceTree = "<group>"; };
+		C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftUIBindings.xcodeproj; path = ../playground/SwiftUIBindings/SwiftUIBindings.xcodeproj; sourceTree = "<group>"; };
 		C4130878247312EE00684A87 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BootiOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4471F3E245FE73100EF82B1 /* BootiOSFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BootiOSFramework.h; sourceTree = "<group>"; };
@@ -178,10 +192,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C407A49024C20D0A00B9155E /* Products */ = {
+		C407A4D424C213CD00B9155E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C407A49424C20D0A00B9155E /* CasePathsPlayground.app */,
+				C407A4DA24C213CF00B9155E /* SwiftUIBindings.app */,
+				C407A4DC24C213CF00B9155E /* SwiftUIBindingsTests.xctest */,
+				C407A4DE24C213CF00B9155E /* SwiftUIBindingsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,7 +235,7 @@
 		C49C0E582454400D0016E793 = {
 			isa = PBXGroup;
 			children = (
-				C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */,
+				C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */,
 				C407A45224C2097600B9155E /* CasePathsPlayground.playground */,
 				C4471F6E24608A5600EF82B1 /* Variance.playground */,
 				C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */,
@@ -457,8 +473,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = C407A49024C20D0A00B9155E /* Products */;
-					ProjectRef = C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */;
+					ProductGroup = C407A4D424C213CD00B9155E /* Products */;
+					ProjectRef = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -473,11 +489,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		C407A49424C20D0A00B9155E /* CasePathsPlayground.app */ = {
+		C407A4DA24C213CF00B9155E /* SwiftUIBindings.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = CasePathsPlayground.app;
-			remoteRef = C407A49324C20D0A00B9155E /* PBXContainerItemProxy */;
+			path = SwiftUIBindings.app;
+			remoteRef = C407A4D924C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C407A4DC24C213CF00B9155E /* SwiftUIBindingsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftUIBindingsTests.xctest;
+			remoteRef = C407A4DB24C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C407A4DE24C213CF00B9155E /* SwiftUIBindingsUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftUIBindingsUITests.xctest;
+			remoteRef = C407A4DD24C213CF00B9155E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
