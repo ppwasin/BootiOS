@@ -11,7 +11,8 @@ import SwiftUI
 struct CasaViewKitApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            ShapeEx()
         }
     }
 }

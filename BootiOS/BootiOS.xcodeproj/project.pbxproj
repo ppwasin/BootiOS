@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C407A45124C208FE00B9155E /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = C407A45024C208FE00B9155E /* CasePaths */; };
 		C4130879247312EE00684A87 /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4130878247312EE00684A87 /* TodoTests.swift */; };
 		C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C413087B2473195000684A87 /* ComposableArchitecture */; };
 		C4471F45245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */; };
@@ -30,6 +31,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C407A49324C20D0A00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A47D24C20D0900B9155E;
+			remoteInfo = CasePathsPlayground;
+		};
 		C4471F46245FE73100EF82B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C49C0E592454400D0016E793 /* Project object */;
@@ -92,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C407A45224C2097600B9155E /* CasePathsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CasePathsPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CasePathsPlayground.xcodeproj; path = ../playground/CasePathsPlayground/CasePathsPlayground.xcodeproj; sourceTree = "<group>"; };
 		C4130878247312EE00684A87 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BootiOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4471F3E245FE73100EF82B1 /* BootiOSFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BootiOSFramework.h; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4471F51245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */,
+				C407A45124C208FE00B9155E /* CasePaths in Frameworks */,
 				C49C0E9B245440BC0016E793 /* Home in Frameworks */,
 				C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */,
 			);
@@ -167,6 +178,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C407A49024C20D0A00B9155E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C407A49424C20D0A00B9155E /* CasePathsPlayground.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C4471F3D245FE73100EF82B1 /* BootiOSFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +219,8 @@
 		C49C0E582454400D0016E793 = {
 			isa = PBXGroup;
 			children = (
+				C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */,
+				C407A45224C2097600B9155E /* CasePathsPlayground.playground */,
 				C4471F6E24608A5600EF82B1 /* Variance.playground */,
 				C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */,
 				C4471F62245FFE2E00EF82B1 /* AlgebraicDataTypes-Exponents.playground */,
@@ -344,6 +365,7 @@
 			packageProductDependencies = (
 				C49C0E9A245440BC0016E793 /* Home */,
 				C413087B2473195000684A87 /* ComposableArchitecture */,
+				C407A45024C208FE00B9155E /* CasePaths */,
 			);
 			productName = BootiOS;
 			productReference = C49C0E612454400D0016E793 /* BootiOS.app */;
@@ -429,9 +451,16 @@
 			mainGroup = C49C0E582454400D0016E793;
 			packageReferences = (
 				C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */,
 			);
 			productRefGroup = C49C0E622454400D0016E793 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C407A49024C20D0A00B9155E /* Products */;
+					ProjectRef = C407A48F24C20D0A00B9155E /* CasePathsPlayground.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C49C0E602454400D0016E793 /* BootiOS */,
@@ -442,6 +471,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C407A49424C20D0A00B9155E /* CasePathsPlayground.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = CasePathsPlayground.app;
+			remoteRef = C407A49324C20D0A00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C4471F3A245FE73100EF82B1 /* Resources */ = {
@@ -959,6 +998,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-case-paths";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -970,6 +1017,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C407A45024C208FE00B9155E /* CasePaths */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */;
+			productName = CasePaths;
+		};
 		C413087B2473195000684A87 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
