@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C407A4E924C28F7800B9155E /* PrefExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4E824C28F7800B9155E /* PrefExView.swift */; };
 		C443EB9924B9B12100FD1272 /* CasaViewKitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443EB9824B9B12100FD1272 /* CasaViewKitApp.swift */; };
 		C443EB9B24B9B12100FD1272 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443EB9A24B9B12100FD1272 /* ContentView.swift */; };
 		C443EB9D24B9B12300FD1272 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C443EB9C24B9B12300FD1272 /* Assets.xcassets */; };
@@ -18,6 +19,8 @@
 		C443EBCA24B9CB1300FD1272 /* ExplicitImplicitEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443EBC924B9CB1300FD1272 /* ExplicitImplicitEx.swift */; };
 		C443EBCC24BB276E00FD1272 /* AdvancedExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443EBCB24BB276E00FD1272 /* AdvancedExample.swift */; };
 		C443EBCE24BB2A4400FD1272 /* ShapeEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C443EBCD24BB2A4400FD1272 /* ShapeEx.swift */; };
+		C4FFFF2024C2919A00AC4E78 /* GeometryEffectExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF1F24C2919A00AC4E78 /* GeometryEffectExView.swift */; };
+		C4FFFF2224C2962A00AC4E78 /* GeometryReaderScrollExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF2124C2962A00AC4E78 /* GeometryReaderScrollExView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C407A4E824C28F7800B9155E /* PrefExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefExView.swift; sourceTree = "<group>"; };
 		C443EB9524B9B12100FD1272 /* CasaViewKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CasaViewKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C443EB9824B9B12100FD1272 /* CasaViewKitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasaViewKitApp.swift; sourceTree = "<group>"; };
 		C443EB9A24B9B12100FD1272 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 		C443EBC924B9CB1300FD1272 /* ExplicitImplicitEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplicitImplicitEx.swift; sourceTree = "<group>"; };
 		C443EBCB24BB276E00FD1272 /* AdvancedExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedExample.swift; sourceTree = "<group>"; };
 		C443EBCD24BB2A4400FD1272 /* ShapeEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeEx.swift; sourceTree = "<group>"; };
+		C4FFFF1F24C2919A00AC4E78 /* GeometryEffectExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryEffectExView.swift; sourceTree = "<group>"; };
+		C4FFFF2124C2962A00AC4E78 /* GeometryReaderScrollExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderScrollExView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,9 @@
 				C443EBC924B9CB1300FD1272 /* ExplicitImplicitEx.swift */,
 				C443EBCB24BB276E00FD1272 /* AdvancedExample.swift */,
 				C443EBCD24BB2A4400FD1272 /* ShapeEx.swift */,
+				C407A4E824C28F7800B9155E /* PrefExView.swift */,
+				C4FFFF1F24C2919A00AC4E78 /* GeometryEffectExView.swift */,
+				C4FFFF2124C2962A00AC4E78 /* GeometryReaderScrollExView.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -282,11 +291,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C407A4E924C28F7800B9155E /* PrefExView.swift in Sources */,
 				C443EB9B24B9B12100FD1272 /* ContentView.swift in Sources */,
 				C443EBC824B9BAD400FD1272 /* MatchedGeometryExample.swift in Sources */,
 				C443EB9924B9B12100FD1272 /* CasaViewKitApp.swift in Sources */,
+				C4FFFF2224C2962A00AC4E78 /* GeometryReaderScrollExView.swift in Sources */,
 				C443EBCE24BB2A4400FD1272 /* ShapeEx.swift in Sources */,
 				C443EBCA24B9CB1300FD1272 /* ExplicitImplicitEx.swift in Sources */,
+				C4FFFF2024C2919A00AC4E78 /* GeometryEffectExView.swift in Sources */,
 				C443EBCC24BB276E00FD1272 /* AdvancedExample.swift in Sources */,
 				C443EBC624B9B8A000FD1272 /* ExampleView.swift in Sources */,
 			);

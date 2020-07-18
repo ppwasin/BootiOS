@@ -159,29 +159,29 @@ struct InventoryView_Previews: PreviewProvider {
     }
 }
 
-struct User {
-    var id: Int
-    var name: String
-}
-
-func foo() {
-    let tmp = \User.id
-    var user = User(id: 42, name: "Blob")
-    user[keyPath: \User.id] = 100
-    let id = user[keyPath: \User.id]
-
-    let intStockCasePath: CasePath<Item.Status, Int>
-        = /Item.Status.inStock
-//      = .case(Item.Status.inStock)
-//      = CasePath<Item.Status, Int>(
-//          embed: Item.Status.inStock(quantity:),
-//          extract: { status in
-//              guard case let .inStock(quantity) = status else { return nil }
-//              return quantity
-//          }
-//        )
-
-    let status = Item.Status.inStock(quantity: 100)
-    let quantity = intStockCasePath.extract(from: status)
-    let newStatus = intStockCasePath.embed(100)
-}
+//struct User {
+//    var id: Int
+//    var name: String
+//}
+//
+//func foo() {
+//    let tmp = \User.id
+//    var user = User(id: 42, name: "Blob")
+//    user[keyPath: \User.id] = 100
+//    let id = user[keyPath: \User.id]
+//
+//    let intStockCasePath: CasePath<Item.Status, Int>
+//        = /Item.Status.inStock
+////      = .case(Item.Status.inStock)
+////      = CasePath<Item.Status, Int>(
+////          embed: Item.Status.inStock(quantity:),
+////          extract: { status in
+////              guard case let .inStock(quantity) = status else { return nil }
+////              return quantity
+////          }
+////        )
+//
+//    let status = Item.Status.inStock(quantity: 100)
+//    let quantity = intStockCasePath.extract(from: status)
+//    let newStatus = intStockCasePath.embed(100)
+//}

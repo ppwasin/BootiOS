@@ -11,8 +11,11 @@ import SwiftUI
 struct CasaViewKitApp: App {
     var body: some Scene {
         WindowGroup {
+            LazyVStack {
 //            ContentView()
-            ShapeEx()
+                ShapeEx()
+                PrefExView()
+            }
         }
     }
 }
