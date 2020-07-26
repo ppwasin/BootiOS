@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		C407A4A924C213CB00B9155E /* SwiftUIBindingsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4A824C213CB00B9155E /* SwiftUIBindingsApp.swift */; };
-		C407A4AB24C213CB00B9155E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4AA24C213CB00B9155E /* ContentView.swift */; };
+		C407A4AB24C213CB00B9155E /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4AA24C213CB00B9155E /* ItemView.swift */; };
 		C407A4AD24C213CD00B9155E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407A4AC24C213CD00B9155E /* Assets.xcassets */; };
 		C407A4B024C213CD00B9155E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C407A4AF24C213CD00B9155E /* Preview Assets.xcassets */; };
 		C407A4BB24C213CD00B9155E /* SwiftUIBindingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4BA24C213CD00B9155E /* SwiftUIBindingsTests.swift */; };
 		C407A4C624C213CD00B9155E /* SwiftUIBindingsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4C524C213CD00B9155E /* SwiftUIBindingsUITests.swift */; };
 		C407A4E024C2141D00B9155E /* BindingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C407A4DF24C2141D00B9155E /* BindingExtension.swift */; };
 		C407A4E324C2144200B9155E /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = C407A4E224C2144200B9155E /* CasePaths */; };
+		C4DB7D8C24CD77B200F00C87 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DB7D8B24CD77B200F00C87 /* Inventory.swift */; };
+		C4DB7D8E24CD78A900F00C87 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DB7D8D24CD78A900F00C87 /* Item.swift */; };
+		C4DB7D9224CD825000F00C87 /* SheetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DB7D9124CD825000F00C87 /* SheetExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,7 @@
 /* Begin PBXFileReference section */
 		C407A4A524C213CB00B9155E /* SwiftUIBindings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIBindings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C407A4A824C213CB00B9155E /* SwiftUIBindingsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBindingsApp.swift; sourceTree = "<group>"; };
-		C407A4AA24C213CB00B9155E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C407A4AA24C213CB00B9155E /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		C407A4AC24C213CD00B9155E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C407A4AF24C213CD00B9155E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C407A4B124C213CD00B9155E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		C407A4C524C213CD00B9155E /* SwiftUIBindingsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIBindingsUITests.swift; sourceTree = "<group>"; };
 		C407A4C724C213CD00B9155E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C407A4DF24C2141D00B9155E /* BindingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExtension.swift; sourceTree = "<group>"; };
+		C4DB7D8B24CD77B200F00C87 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		C4DB7D8D24CD78A900F00C87 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C4DB7D9124CD825000F00C87 /* SheetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +106,14 @@
 			isa = PBXGroup;
 			children = (
 				C407A4A824C213CB00B9155E /* SwiftUIBindingsApp.swift */,
-				C407A4AA24C213CB00B9155E /* ContentView.swift */,
+				C4DB7D8B24CD77B200F00C87 /* Inventory.swift */,
+				C407A4AA24C213CB00B9155E /* ItemView.swift */,
 				C407A4AC24C213CD00B9155E /* Assets.xcassets */,
 				C407A4B124C213CD00B9155E /* Info.plist */,
 				C407A4AE24C213CD00B9155E /* Preview Content */,
 				C407A4DF24C2141D00B9155E /* BindingExtension.swift */,
+				C4DB7D8D24CD78A900F00C87 /* Item.swift */,
+				C4DB7D9124CD825000F00C87 /* SheetExt.swift */,
 			);
 			path = SwiftUIBindings;
 			sourceTree = "<group>";
@@ -270,8 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DB7D8E24CD78A900F00C87 /* Item.swift in Sources */,
+				C4DB7D9224CD825000F00C87 /* SheetExt.swift in Sources */,
 				C407A4E024C2141D00B9155E /* BindingExtension.swift in Sources */,
-				C407A4AB24C213CB00B9155E /* ContentView.swift in Sources */,
+				C4DB7D8C24CD77B200F00C87 /* Inventory.swift in Sources */,
+				C407A4AB24C213CB00B9155E /* ItemView.swift in Sources */,
 				C407A4A924C213CB00B9155E /* SwiftUIBindingsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

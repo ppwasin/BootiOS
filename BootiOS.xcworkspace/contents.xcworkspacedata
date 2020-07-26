@@ -8,6 +8,9 @@
       location = "group:playground/CombinePlayground/CombinePlayground.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:BootiOS/../features/EProfStore/EProfStore.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:features/Home">
    </FileRef>
    <FileRef
