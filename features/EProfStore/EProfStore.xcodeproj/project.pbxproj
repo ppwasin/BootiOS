@@ -12,6 +12,10 @@
 		C402E75D24D9BB7300958E2E /* HealthGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E75C24D9BB7300958E2E /* HealthGroupBoxStyle.swift */; };
 		C402E76124D9BC3A00958E2E /* HealthValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76024D9BC3A00958E2E /* HealthValueView.swift */; };
 		C402E76324D9C24200958E2E /* MusicStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76224D9C24200958E2E /* MusicStatsView.swift */; };
+		C402E76524D9C3BE00958E2E /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76424D9C3BE00958E2E /* CheckboxView.swift */; };
+		C402E76A24D9C87000958E2E /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76924D9C87000958E2E /* CheckboxButton.swift */; };
+		C402E76C24D9C8F600958E2E /* CircularCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76B24D9C8F600958E2E /* CircularCheckboxView.swift */; };
+		C402E76E24D9CA9000958E2E /* CapsuleCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76D24D9CA9000958E2E /* CapsuleCheckboxView.swift */; };
 		C4FFFF3024C29B7F00AC4E78 /* EProfStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF2F24C29B7F00AC4E78 /* EProfStoreApp.swift */; };
 		C4FFFF3424C29B8100AC4E78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FFFF3324C29B8100AC4E78 /* Assets.xcassets */; };
 		C4FFFF3724C29B8100AC4E78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FFFF3624C29B8100AC4E78 /* Preview Assets.xcassets */; };
@@ -45,6 +49,10 @@
 		C402E75C24D9BB7300958E2E /* HealthGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthGroupBoxStyle.swift; sourceTree = "<group>"; };
 		C402E76024D9BC3A00958E2E /* HealthValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthValueView.swift; sourceTree = "<group>"; };
 		C402E76224D9C24200958E2E /* MusicStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicStatsView.swift; sourceTree = "<group>"; };
+		C402E76424D9C3BE00958E2E /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		C402E76924D9C87000958E2E /* CheckboxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
+		C402E76B24D9C8F600958E2E /* CircularCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularCheckboxView.swift; sourceTree = "<group>"; };
+		C402E76D24D9CA9000958E2E /* CapsuleCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleCheckboxView.swift; sourceTree = "<group>"; };
 		C4FFFF2C24C29B7F00AC4E78 /* EProfStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EProfStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FFFF2F24C29B7F00AC4E78 /* EProfStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EProfStoreApp.swift; sourceTree = "<group>"; };
 		C4FFFF3324C29B8100AC4E78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +103,17 @@
 				C402E76224D9C24200958E2E /* MusicStatsView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C402E76624D9C81600958E2E /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				C402E76924D9C87000958E2E /* CheckboxButton.swift */,
+				C402E76424D9C3BE00958E2E /* CheckboxView.swift */,
+				C402E76B24D9C8F600958E2E /* CircularCheckboxView.swift */,
+				C402E76D24D9CA9000958E2E /* CapsuleCheckboxView.swift */,
+			);
+			path = CheckBox;
 			sourceTree = "<group>";
 		};
 		C4FFFF2324C29B7F00AC4E78 = {
@@ -160,6 +179,7 @@
 		C4FFFF6924C29C2100AC4E78 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C402E76624D9C81600958E2E /* CheckBox */,
 				C4FFFF6A24C29C3A00AC4E78 /* Searchbar.swift */,
 				C4FFFF6C24C3FBE700AC4E78 /* ImageAssets.swift */,
 				C4FFFF6E24C45ACC00AC4E78 /* HeaderView.swift */,
@@ -296,14 +316,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C402E76C24D9C8F600958E2E /* CircularCheckboxView.swift in Sources */,
 				C402E75B24D9BB1E00958E2E /* HealthView.swift in Sources */,
 				C4FFFF6F24C45ACC00AC4E78 /* HeaderView.swift in Sources */,
 				C402E75824D9BA1300958E2E /* EProfHomeView.swift in Sources */,
+				C402E76524D9C3BE00958E2E /* CheckboxView.swift in Sources */,
 				C402E75D24D9BB7300958E2E /* HealthGroupBoxStyle.swift in Sources */,
 				C4FFFF6D24C3FBE700AC4E78 /* ImageAssets.swift in Sources */,
 				C402E76324D9C24200958E2E /* MusicStatsView.swift in Sources */,
+				C402E76A24D9C87000958E2E /* CheckboxButton.swift in Sources */,
 				C4FFFF3024C29B7F00AC4E78 /* EProfStoreApp.swift in Sources */,
 				C402E76124D9BC3A00958E2E /* HealthValueView.swift in Sources */,
+				C402E76E24D9CA9000958E2E /* CapsuleCheckboxView.swift in Sources */,
 				C4FFFF6B24C29C3A00AC4E78 /* Searchbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
