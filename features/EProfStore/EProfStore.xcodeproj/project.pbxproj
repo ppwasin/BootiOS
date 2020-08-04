@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C402E75824D9BA1300958E2E /* EProfHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E75724D9BA1300958E2E /* EProfHomeView.swift */; };
+		C402E75B24D9BB1E00958E2E /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E75A24D9BB1E00958E2E /* HealthView.swift */; };
+		C402E75D24D9BB7300958E2E /* HealthGroupBoxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E75C24D9BB7300958E2E /* HealthGroupBoxStyle.swift */; };
+		C402E76124D9BC3A00958E2E /* HealthValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76024D9BC3A00958E2E /* HealthValueView.swift */; };
+		C402E76324D9C24200958E2E /* MusicStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C402E76224D9C24200958E2E /* MusicStatsView.swift */; };
 		C4FFFF3024C29B7F00AC4E78 /* EProfStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF2F24C29B7F00AC4E78 /* EProfStoreApp.swift */; };
-		C4FFFF3224C29B7F00AC4E78 /* EProfHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF3124C29B7F00AC4E78 /* EProfHomeView.swift */; };
 		C4FFFF3424C29B8100AC4E78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FFFF3324C29B8100AC4E78 /* Assets.xcassets */; };
 		C4FFFF3724C29B8100AC4E78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FFFF3624C29B8100AC4E78 /* Preview Assets.xcassets */; };
 		C4FFFF4224C29B8100AC4E78 /* EProfStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FFFF4124C29B8100AC4E78 /* EProfStoreTests.swift */; };
@@ -36,9 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C402E75724D9BA1300958E2E /* EProfHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EProfHomeView.swift; sourceTree = "<group>"; };
+		C402E75A24D9BB1E00958E2E /* HealthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthView.swift; sourceTree = "<group>"; };
+		C402E75C24D9BB7300958E2E /* HealthGroupBoxStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthGroupBoxStyle.swift; sourceTree = "<group>"; };
+		C402E76024D9BC3A00958E2E /* HealthValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthValueView.swift; sourceTree = "<group>"; };
+		C402E76224D9C24200958E2E /* MusicStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicStatsView.swift; sourceTree = "<group>"; };
 		C4FFFF2C24C29B7F00AC4E78 /* EProfStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EProfStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FFFF2F24C29B7F00AC4E78 /* EProfStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EProfStoreApp.swift; sourceTree = "<group>"; };
-		C4FFFF3124C29B7F00AC4E78 /* EProfHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EProfHomeView.swift; sourceTree = "<group>"; };
 		C4FFFF3324C29B8100AC4E78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4FFFF3624C29B8100AC4E78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C4FFFF3824C29B8100AC4E78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +86,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C402E75924D9BB1000958E2E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C402E75A24D9BB1E00958E2E /* HealthView.swift */,
+				C402E75C24D9BB7300958E2E /* HealthGroupBoxStyle.swift */,
+				C402E76024D9BC3A00958E2E /* HealthValueView.swift */,
+				C402E76224D9C24200958E2E /* MusicStatsView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		C4FFFF2324C29B7F00AC4E78 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +120,10 @@
 		C4FFFF2E24C29B7F00AC4E78 /* EProfStore */ = {
 			isa = PBXGroup;
 			children = (
+				C402E75924D9BB1000958E2E /* Home */,
 				C4FFFF6924C29C2100AC4E78 /* Components */,
 				C4FFFF2F24C29B7F00AC4E78 /* EProfStoreApp.swift */,
-				C4FFFF3124C29B7F00AC4E78 /* EProfHomeView.swift */,
+				C402E75724D9BA1300958E2E /* EProfHomeView.swift */,
 				C4FFFF3324C29B8100AC4E78 /* Assets.xcassets */,
 				C4FFFF3824C29B8100AC4E78 /* Info.plist */,
 				C4FFFF3524C29B8100AC4E78 /* Preview Content */,
@@ -276,10 +296,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C402E75B24D9BB1E00958E2E /* HealthView.swift in Sources */,
 				C4FFFF6F24C45ACC00AC4E78 /* HeaderView.swift in Sources */,
-				C4FFFF3224C29B7F00AC4E78 /* EProfHomeView.swift in Sources */,
+				C402E75824D9BA1300958E2E /* EProfHomeView.swift in Sources */,
+				C402E75D24D9BB7300958E2E /* HealthGroupBoxStyle.swift in Sources */,
 				C4FFFF6D24C3FBE700AC4E78 /* ImageAssets.swift in Sources */,
+				C402E76324D9C24200958E2E /* MusicStatsView.swift in Sources */,
 				C4FFFF3024C29B7F00AC4E78 /* EProfStoreApp.swift in Sources */,
+				C402E76124D9BC3A00958E2E /* HealthValueView.swift in Sources */,
 				C4FFFF6B24C29C3A00AC4E78 /* Searchbar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
