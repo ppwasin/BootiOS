@@ -87,6 +87,27 @@
 			remoteGlobalIDString = C49C0E602454400D0016E793;
 			remoteInfo = BootiOS;
 		};
+		C4D07DBC24DB1A4000204D0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07D8824DB1A3E00204D0B;
+			remoteInfo = DesigningDependencies;
+		};
+		C4D07DBE24DB1A4000204D0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07D9924DB1A3F00204D0B;
+			remoteInfo = DesigningDependenciesTests;
+		};
+		C4D07DC024DB1A4000204D0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07DA424DB1A3F00204D0B;
+			remoteInfo = DesigningDependenciesUITests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -146,6 +167,7 @@
 		C49C0E8B245440100016E793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49C0F262455EF3B0016E793 /* BootiOSPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BootiOSPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C49EAD3A248CEBC200FD540C /* CombinePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CombinePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DesigningDependencies.xcodeproj; path = ../../../Desktop/DesigningDependencies/DesigningDependencies.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +257,7 @@
 		C49C0E582454400D0016E793 = {
 			isa = PBXGroup;
 			children = (
+				C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */,
 				C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */,
 				C407A45224C2097600B9155E /* CasePathsPlayground.playground */,
 				C4471F6E24608A5600EF82B1 /* Variance.playground */,
@@ -310,6 +333,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C4D07DB724DB1A3F00204D0B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4D07DBD24DB1A4000204D0B /* DesigningDependencies.app */,
+				C4D07DBF24DB1A4000204D0B /* DesigningDependenciesTests.xctest */,
+				C4D07DC124DB1A4000204D0B /* DesigningDependenciesUITests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +506,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = C4D07DB724DB1A3F00204D0B /* Products */;
+					ProjectRef = C4D07DB624DB1A3F00204D0B /* DesigningDependencies.xcodeproj */;
+				},
+				{
 					ProductGroup = C407A4D424C213CD00B9155E /* Products */;
 					ProjectRef = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
 				},
@@ -508,6 +545,27 @@
 			fileType = wrapper.cfbundle;
 			path = SwiftUIBindingsUITests.xctest;
 			remoteRef = C407A4DD24C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4D07DBD24DB1A4000204D0B /* DesigningDependencies.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DesigningDependencies.app;
+			remoteRef = C4D07DBC24DB1A4000204D0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4D07DBF24DB1A4000204D0B /* DesigningDependenciesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DesigningDependenciesTests.xctest;
+			remoteRef = C4D07DBE24DB1A4000204D0B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C4D07DC124DB1A4000204D0B /* DesigningDependenciesUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DesigningDependenciesUITests.xctest;
+			remoteRef = C4D07DC024DB1A4000204D0B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
