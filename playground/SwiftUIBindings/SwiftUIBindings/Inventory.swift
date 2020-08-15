@@ -81,7 +81,7 @@ struct InventoryView: View {
             .navigationBarItems(
                 trailing: Button("Add") { self.viewModel.addButtonTapped() }
             )
-            .sheet(unwrap: self.$viewModel.draft) { item in
+            .sheet(unwrap: self.$viewModel.draft) { item: Binding<Item> in
                 NavigationView {
                     ItemView(item: item)
                         .navigationBarItems(
