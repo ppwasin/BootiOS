@@ -60,9 +60,8 @@ public class AppViewModel: ObservableObject {
                 }
             })
 
-        self.locationCancellable = locationClient.delegate
-            .sink { [weak self] event in
-                guard let self = self else { return }
+        self.locationCancellable = self.locationClient.delegate
+            .sink { event in
                 switch event {
                 case .didChangeAuthorization(let status):
                     switch status {
@@ -194,7 +193,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         return ContentView(
             viewModel: AppViewModel(
-                pathMonitorClient: .satisfied,
+                pathMonitorClient: .flakey,
                 weatherClient: .happyPath,
                 locationClient: .authorizedWhenInUse
             )

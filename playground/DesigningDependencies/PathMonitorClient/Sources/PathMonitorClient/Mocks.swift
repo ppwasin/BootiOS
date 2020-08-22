@@ -45,7 +45,7 @@ extension PathMonitorClient {
             .eraseToAnyPublisher()
     )
     public static let flakey = Self(
-        networkPathPublisher: Timer.publish(every: 2, on: .main, in: .common)
+        networkPathPublisher: Timer.publish(every: 2, on: .main, in: .default)
             .autoconnect()
             .scan(.satisfied) { status, _ in
                 status == .satisfied ? .unsatisfied : .satisfied
@@ -54,4 +54,3 @@ extension PathMonitorClient {
             .eraseToAnyPublisher()
     )
 }
-
