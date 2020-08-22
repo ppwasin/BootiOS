@@ -6,86 +6,10 @@
 //
 
 import Combine
-import CoreLocation
 import PathMonitorClient
 import SwiftUI
 import WhetherClient
-
-public struct LocationClient {
-    var authorizationStatus: () -> CLAuthorizationStatus
-    var requestWhenInUseAuthorization: () -> Void
-    var requestLocation: () -> Void
-    var delegate: AnyPublisher<DelegateEvent, Never>
-    enum DelegateEvent {
-        case didChangeAuthorization(CLAuthorizationStatus)
-        case didUpdateLocations([CLLocation])
-        case didFailWithError(Error)
-    }
-}
-
-extension LocationClient {
-    public static var live: Self {
-        class Delegate: NSObject, CLLocationManagerDelegate {
-            let subject: PassthroughSubject<DelegateEvent, Never>
-
-            init(subject: PassthroughSubject<DelegateEvent, Never>) {
-                self.subject = subject
-            }
-
-            func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-                self.subject.send(.didChangeAuthorization(status))
-            }
-
-            func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-                self.subject.send(.didUpdateLocations(locations))
-            }
-
-            func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-                self.subject.send(.didFailWithError(error))
-            }
-        }
-        let manager = CLLocationManager()
-        let subject = PassthroughSubject<DelegateEvent, Never>()
-        var delegate: Delegate? = Delegate(subject: subject)
-        manager.delegate = delegate
-        return Self(
-            authorizationStatus: manager.authorizationStatus,
-            requestWhenInUseAuthorization: manager.requestWhenInUseAuthorization,
-            requestLocation: manager.requestLocation,
-            delegate: subject
-                .handleEvents(receiveCancel: { delegate = nil }) // since manager.delegate is weak ref. So need to have bind the delegate with relay lifetime
-                .eraseToAnyPublisher()
-        )
-    }
-}
-
-extension LocationClient {
-    public static var authorizedWhenInUse: Self {
-        let subject = PassthroughSubject<DelegateEvent, Never>()
-        return Self(
-            authorizationStatus: { .authorizedWhenInUse },
-            requestWhenInUseAuthorization: {},
-            requestLocation: { subject.send(.didUpdateLocations([CLLocation()])) },
-            delegate: subject.eraseToAnyPublisher()
-        )
-    }
-    public static var notDetermined: Self {
-        var status = CLAuthorizationStatus.notDetermined
-        let subject = PassthroughSubject<DelegateEvent, Never>()
-
-        return Self(
-          authorizationStatus: { status },
-          requestWhenInUseAuthorization: {
-            status = .authorizedWhenInUse
-            subject.send(.didChangeAuthorization(status))
-          },
-          requestLocation: {
-            subject.send(.didUpdateLocations([CLLocation()]))
-          },
-          delegate: subject.eraseToAnyPublisher()
-        )
-      }
-}
+import LocationClient
 
 public class AppViewModel: ObservableObject {
     @Published var isConnected = true
@@ -95,6 +19,7 @@ public class AppViewModel: ObservableObject {
     private var weatherRequestCancellable: AnyCancellable?
     private var pathUpdateCancellable: AnyCancellable?
     private var searchLocationCancellable: AnyCancellable?
+    private var locationCancellable: AnyCancellable?
     private let weatherClient: WhetherClient
     private let pathMonitorClient: PathMonitorClient
     private let locationClient: LocationClient
@@ -135,7 +60,7 @@ public class AppViewModel: ObservableObject {
                 }
             })
 
-        self.searchLocationCancellable = locationClient.delegate
+        self.locationCancellable = locationClient.delegate
             .sink { [weak self] event in
                 guard let self = self else { return }
                 switch event {
@@ -166,7 +91,8 @@ public class AppViewModel: ObservableObject {
                                 self?.refreshWeather()
                             }
                         )
-                case .didFailWithError:
+                case .didFailWithError(let error):
+                    print(error)
                     break
                 }
             }
@@ -270,7 +196,7 @@ struct ContentView_Previews: PreviewProvider {
             viewModel: AppViewModel(
                 pathMonitorClient: .satisfied,
                 weatherClient: .happyPath,
-                locationClient: .notDetermined
+                locationClient: .authorizedWhenInUse
             )
         )
     }

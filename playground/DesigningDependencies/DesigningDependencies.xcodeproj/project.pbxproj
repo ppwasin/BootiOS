@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C44C2CF624F1143300B08BF0 /* LocationClient in Frameworks */ = {isa = PBXBuildFile; productRef = C44C2CF524F1143300B08BF0 /* LocationClient */; };
+		C44C2CF724F1143300B08BF0 /* LocationClient in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C44C2CF524F1143300B08BF0 /* LocationClient */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C44C2CF924F1156600B08BF0 /* LocationClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = C44C2CF824F1156600B08BF0 /* LocationClientLive */; };
+		C44C2CFA24F1156600B08BF0 /* LocationClientLive in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C44C2CF824F1156600B08BF0 /* LocationClientLive */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C45FC73824E7D58200BAE953 /* PathMonitorClient in Frameworks */ = {isa = PBXBuildFile; productRef = C45FC73724E7D58200BAE953 /* PathMonitorClient */; };
 		C45FC73924E7D58200BAE953 /* PathMonitorClient in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C45FC73724E7D58200BAE953 /* PathMonitorClient */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C45FC73E24E7D71B00BAE953 /* PathMonitorClientLive in Frameworks */ = {isa = PBXBuildFile; productRef = C45FC73D24E7D71B00BAE953 /* PathMonitorClientLive */; };
@@ -75,6 +79,7 @@
 			files = (
 				C4D07DED24DB252500204D0B /* WhetherFeature.framework in Embed Frameworks */,
 				C45FC74224E7D72200BAE953 /* WhetherClientLive in Embed Frameworks */,
+				C44C2CFA24F1156600B08BF0 /* LocationClientLive in Embed Frameworks */,
 				C45FC73F24E7D71B00BAE953 /* PathMonitorClientLive in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -86,6 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C44C2CF724F1143300B08BF0 /* LocationClient in Embed Frameworks */,
 				C4D559E624DB2B6100FEE64E /* WhetherClient in Embed Frameworks */,
 				C45FC73924E7D58200BAE953 /* PathMonitorClient in Embed Frameworks */,
 			);
@@ -96,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		C4161F2B24E3D603001A9EA6 /* DesigningDependencies.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DesigningDependencies.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44C2CF224F1136700B08BF0 /* LocationClient */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LocationClient; sourceTree = "<group>"; };
 		C45FC73624E7D30D00BAE953 /* PathMonitorClient */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PathMonitorClient; sourceTree = "<group>"; };
 		C4D07D8824DB1A3E00204D0B /* DesigningDependencies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesigningDependencies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D07D8B24DB1A3E00204D0B /* DesigningDependenciesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesigningDependenciesApp.swift; sourceTree = "<group>"; };
@@ -125,6 +132,7 @@
 			files = (
 				C4D07DEB24DB252500204D0B /* WhetherFeature.framework in Frameworks */,
 				C45FC74124E7D72200BAE953 /* WhetherClientLive in Frameworks */,
+				C44C2CF924F1156600B08BF0 /* LocationClientLive in Frameworks */,
 				C45FC73E24E7D71B00BAE953 /* PathMonitorClientLive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44C2CF624F1143300B08BF0 /* LocationClient in Frameworks */,
 				C4D559E524DB2B6100FEE64E /* WhetherClient in Frameworks */,
 				C45FC73824E7D58200BAE953 /* PathMonitorClient in Frameworks */,
 			);
@@ -166,6 +175,7 @@
 		C4D07D7F24DB1A3E00204D0B = {
 			isa = PBXGroup;
 			children = (
+				C44C2CF224F1136700B08BF0 /* LocationClient */,
 				C4D07DCB24DB1F9000204D0B /* WhetherClient */,
 				C45FC73624E7D30D00BAE953 /* PathMonitorClient */,
 				C4161F2B24E3D603001A9EA6 /* DesigningDependencies.playground */,
@@ -286,6 +296,7 @@
 			packageProductDependencies = (
 				C45FC73D24E7D71B00BAE953 /* PathMonitorClientLive */,
 				C45FC74024E7D72200BAE953 /* WhetherClientLive */,
+				C44C2CF824F1156600B08BF0 /* LocationClientLive */,
 			);
 			productName = DesigningDependencies;
 			productReference = C4D07D8824DB1A3E00204D0B /* DesigningDependencies.app */;
@@ -345,6 +356,7 @@
 			packageProductDependencies = (
 				C4D559E424DB2B6100FEE64E /* WhetherClient */,
 				C45FC73724E7D58200BAE953 /* PathMonitorClient */,
+				C44C2CF524F1143300B08BF0 /* LocationClient */,
 			);
 			productName = WhetherFeature;
 			productReference = C4D07DD624DB252400204D0B /* WhetherFeature.framework */;
@@ -932,6 +944,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C44C2CF524F1143300B08BF0 /* LocationClient */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationClient;
+		};
+		C44C2CF824F1156600B08BF0 /* LocationClientLive */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationClientLive;
+		};
 		C45FC73724E7D58200BAE953 /* PathMonitorClient */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = PathMonitorClient;

@@ -9,6 +9,7 @@ import SwiftUI
 import WhetherClientLive
 import WhetherFeature
 import PathMonitorClientLive
+import LocationClientLive
 
 @main
 struct DesigningDependenciesApp: App {
