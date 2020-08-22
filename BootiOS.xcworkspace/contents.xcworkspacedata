@@ -2,7 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:libs/CasaViewKit/CasaViewKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:playground/CombinePlayground/CombinePlayground.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BootiOS/../features/EProfStore/EProfStore.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:features/Home">

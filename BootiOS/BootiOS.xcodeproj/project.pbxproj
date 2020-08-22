@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C407A45124C208FE00B9155E /* CasePaths in Frameworks */ = {isa = PBXBuildFile; productRef = C407A45024C208FE00B9155E /* CasePaths */; };
 		C4130879247312EE00684A87 /* TodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4130878247312EE00684A87 /* TodoTests.swift */; };
 		C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = C413087B2473195000684A87 /* ComposableArchitecture */; };
 		C4471F45245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */; };
@@ -30,6 +31,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C407A4D924C213CF00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A4A524C213CB00B9155E;
+			remoteInfo = SwiftUIBindings;
+		};
+		C407A4DB24C213CF00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A4B624C213CD00B9155E;
+			remoteInfo = SwiftUIBindingsTests;
+		};
+		C407A4DD24C213CF00B9155E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C407A4C124C213CD00B9155E;
+			remoteInfo = SwiftUIBindingsUITests;
+		};
 		C4471F46245FE73100EF82B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C49C0E592454400D0016E793 /* Project object */;
@@ -50,6 +72,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = C4471F3B245FE73100EF82B1;
 			remoteInfo = BootiOSFramework;
+		};
+		C44C2CD824F112CD00B08BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07D8824DB1A3E00204D0B;
+			remoteInfo = DesigningDependencies;
+		};
+		C44C2CDA24F112CD00B08BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07D9924DB1A3F00204D0B;
+			remoteInfo = DesigningDependenciesTests;
+		};
+		C44C2CDC24F112CD00B08BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07DA424DB1A3F00204D0B;
+			remoteInfo = DesigningDependenciesUITests;
+		};
+		C44C2CDE24F112CD00B08BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07DD624DB252400204D0B;
+			remoteInfo = WhetherFeature;
+		};
+		C44C2CE024F112CD00B08BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C4D07DDE24DB252500204D0B;
+			remoteInfo = WhetherFeatureTests;
 		};
 		C49C0E7B2454400F0016E793 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -92,6 +149,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C407A45224C2097600B9155E /* CasePathsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CasePathsPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftUIBindings.xcodeproj; path = ../playground/SwiftUIBindings/SwiftUIBindings.xcodeproj; sourceTree = "<group>"; };
 		C4130878247312EE00684A87 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		C4471F3C245FE73100EF82B1 /* BootiOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BootiOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4471F3E245FE73100EF82B1 /* BootiOSFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BootiOSFramework.h; sourceTree = "<group>"; };
@@ -106,6 +165,7 @@
 		C4471F6324600B0700EF82B1 /* Tagged.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagged.swift; sourceTree = "<group>"; };
 		C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TaggedPlayGround.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C4471F6E24608A5600EF82B1 /* Variance.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Variance.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DesigningDependencies.xcodeproj; path = ../playground/DesigningDependencies/DesigningDependencies.xcodeproj; sourceTree = "<group>"; };
 		C49C0E612454400D0016E793 /* BootiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BootiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49C0E642454400D0016E793 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C49C0E662454400D0016E793 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4471F51245FE73100EF82B1 /* BootiOSFramework.framework in Frameworks */,
+				C407A45124C208FE00B9155E /* CasePaths in Frameworks */,
 				C49C0E9B245440BC0016E793 /* Home in Frameworks */,
 				C413087C2473195000684A87 /* ComposableArchitecture in Frameworks */,
 			);
@@ -167,6 +228,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C407A4D424C213CD00B9155E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C407A4DA24C213CF00B9155E /* SwiftUIBindings.app */,
+				C407A4DC24C213CF00B9155E /* SwiftUIBindingsTests.xctest */,
+				C407A4DE24C213CF00B9155E /* SwiftUIBindingsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C4471F3D245FE73100EF82B1 /* BootiOSFramework */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,9 +268,24 @@
 			path = fp;
 			sourceTree = "<group>";
 		};
+		C44C2CD124F112CC00B08BF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C44C2CD924F112CD00B08BF0 /* DesigningDependencies.app */,
+				C44C2CDB24F112CD00B08BF0 /* DesigningDependenciesTests.xctest */,
+				C44C2CDD24F112CD00B08BF0 /* DesigningDependenciesUITests.xctest */,
+				C44C2CDF24F112CD00B08BF0 /* WhetherFeature.framework */,
+				C44C2CE124F112CD00B08BF0 /* WhetherFeatureTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C49C0E582454400D0016E793 = {
 			isa = PBXGroup;
 			children = (
+				C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */,
+				C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */,
+				C407A45224C2097600B9155E /* CasePathsPlayground.playground */,
 				C4471F6E24608A5600EF82B1 /* Variance.playground */,
 				C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */,
 				C4471F62245FFE2E00EF82B1 /* AlgebraicDataTypes-Exponents.playground */,
@@ -344,6 +430,7 @@
 			packageProductDependencies = (
 				C49C0E9A245440BC0016E793 /* Home */,
 				C413087B2473195000684A87 /* ComposableArchitecture */,
+				C407A45024C208FE00B9155E /* CasePaths */,
 			);
 			productName = BootiOS;
 			productReference = C49C0E612454400D0016E793 /* BootiOS.app */;
@@ -395,7 +482,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Wasin Passornpakorn";
 				TargetAttributes = {
 					C4471F3B245FE73100EF82B1 = {
@@ -429,9 +516,20 @@
 			mainGroup = C49C0E582454400D0016E793;
 			packageReferences = (
 				C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */,
 			);
 			productRefGroup = C49C0E622454400D0016E793 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C44C2CD124F112CC00B08BF0 /* Products */;
+					ProjectRef = C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */;
+				},
+				{
+					ProductGroup = C407A4D424C213CD00B9155E /* Products */;
+					ProjectRef = C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C49C0E602454400D0016E793 /* BootiOS */,
@@ -442,6 +540,65 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C407A4DA24C213CF00B9155E /* SwiftUIBindings.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = SwiftUIBindings.app;
+			remoteRef = C407A4D924C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C407A4DC24C213CF00B9155E /* SwiftUIBindingsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftUIBindingsTests.xctest;
+			remoteRef = C407A4DB24C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C407A4DE24C213CF00B9155E /* SwiftUIBindingsUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftUIBindingsUITests.xctest;
+			remoteRef = C407A4DD24C213CF00B9155E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C44C2CD924F112CD00B08BF0 /* DesigningDependencies.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DesigningDependencies.app;
+			remoteRef = C44C2CD824F112CD00B08BF0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C44C2CDB24F112CD00B08BF0 /* DesigningDependenciesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DesigningDependenciesTests.xctest;
+			remoteRef = C44C2CDA24F112CD00B08BF0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C44C2CDD24F112CD00B08BF0 /* DesigningDependenciesUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DesigningDependenciesUITests.xctest;
+			remoteRef = C44C2CDC24F112CD00B08BF0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C44C2CDF24F112CD00B08BF0 /* WhetherFeature.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = WhetherFeature.framework;
+			remoteRef = C44C2CDE24F112CD00B08BF0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C44C2CE124F112CD00B08BF0 /* WhetherFeatureTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = WhetherFeatureTests.xctest;
+			remoteRef = C44C2CE024F112CD00B08BF0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C4471F3A245FE73100EF82B1 /* Resources */ = {
@@ -689,6 +846,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -750,6 +908,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -959,6 +1118,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-case-paths";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -970,6 +1137,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C407A45024C208FE00B9155E /* CasePaths */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C407A44F24C208FE00B9155E /* XCRemoteSwiftPackageReference "swift-case-paths" */;
+			productName = CasePaths;
+		};
 		C413087B2473195000684A87 /* ComposableArchitecture */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C413087A2473195000684A87 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
