@@ -283,8 +283,8 @@
 		C49C0E582454400D0016E793 = {
 			isa = PBXGroup;
 			children = (
-				C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */,
 				C407A4D324C213CD00B9155E /* SwiftUIBindings.xcodeproj */,
+				C44C2CD024F112CC00B08BF0 /* DesigningDependencies.xcodeproj */,
 				C407A45224C2097600B9155E /* CasePathsPlayground.playground */,
 				C4471F6E24608A5600EF82B1 /* Variance.playground */,
 				C4471F6524600F5600EF82B1 /* TaggedPlayGround.playground */,

@@ -38,7 +38,7 @@ extension LocationClient {
         return Self(
             authorizationStatus: {
                 if #available(iOS 14.0, *) {
-                    return manager.authorizationStatus()
+                    return manager.authorizationStatus
                 } else {
                     return CLLocationManager.authorizationStatus()
                 }

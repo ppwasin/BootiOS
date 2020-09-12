@@ -34,7 +34,7 @@ extension WhetherClient {
             .setFailureType(to: Error.self)
             .eraseToAnyPublisher()
         }, searchLocations: { _ in
-            Just([Location(title: "New York", woeid: 1)])
+            Just([Location(woeid: 1, title: "New York")])
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }

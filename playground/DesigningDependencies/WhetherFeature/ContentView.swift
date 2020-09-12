@@ -6,10 +6,10 @@
 //
 
 import Combine
+import LocationClient
 import PathMonitorClient
 import SwiftUI
 import WhetherClient
-import LocationClient
 
 public class AppViewModel: ObservableObject {
     @Published var isConnected = true
@@ -24,9 +24,9 @@ public class AppViewModel: ObservableObject {
     private let pathMonitorClient: PathMonitorClient
     private let locationClient: LocationClient
     public init(
+        locationClient: LocationClient,
         pathMonitorClient: PathMonitorClient,
-        weatherClient: WhetherClient,
-        locationClient: LocationClient
+        weatherClient: WhetherClient
     ) {
         self.pathMonitorClient = pathMonitorClient
         self.weatherClient = weatherClient
@@ -79,7 +79,7 @@ public class AppViewModel: ObservableObject {
                         break
                     }
                 case .didUpdateLocations(let locations):
-                    guard let location = locations.first else { return }
+                    guard self.isConnected, let location = locations.first else { return }
 
                     self.searchLocationCancellable = self.weatherClient
                         .searchLocations(location.coordinate)
@@ -92,10 +92,9 @@ public class AppViewModel: ObservableObject {
                         )
                 case .didFailWithError(let error):
                     print(error)
-                    break
                 }
             }
-        
+
         if self.locationClient.authorizationStatus() == .authorizedWhenInUse {
             self.locationClient.requestLocation()
         }
@@ -193,9 +192,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         return ContentView(
             viewModel: AppViewModel(
+                locationClient: .authorizedWhenInUse,
                 pathMonitorClient: .flakey,
-                weatherClient: .happyPath,
-                locationClient: .authorizedWhenInUse
+                weatherClient: .happyPath
             )
         )
     }
